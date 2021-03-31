@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import AddEvents from "./components/AddEvents/AddEvents";
 import Home from "./components/Home/Home";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
 export default function BasicExample() {

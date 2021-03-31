@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
 const AddEvents = () => {
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit} = useForm();
     const [imageURL, setImageURL] = useState(null);
+    
 
     const onSubmit = data => {
         const eventData = {
@@ -30,14 +31,14 @@ const AddEvents = () => {
         imageData.set('key', 'f9e9f0a2fee628dcda8d2d786d8340f5');
         imageData.append('image', event.target.files[0]);
 
-        axios.post('https://api.imgbb.com/1/upload', 
-        imageData)
-          .then(function (response) {
+        axios.post('https://api.imgbb.com/1/upload', imageData)
+        .then(function (response) {
             setImageURL(response.data.data.display_url);
-          })
-          .catch(function (error) {
+            console.log(response.data.data.display_url);
+        })
+        .catch(function (error) {
             console.log(error);
-          });
+        });
     }
     return (
         <div>
